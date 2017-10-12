@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+SCRIPT_INPUT='/tmp/input'
+cat > $SCRIPT_INPUT <&0 # STDIN params
+
+echo $SCRIPT_INPUT 1>&2
+
+REFS='{ \"ref\": \"1234\" },{ \"ref\": \"5678\" }'
+
+OUTPUT_STRING="[ $REFS ]"
+echo $OUTPUT_STRING
+exit 0

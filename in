@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+DEST_DIR=$1
+echo $SRC_DIR 1>&2
+echo $BUILD_ID 1>&2
+echo $BUILD_NAME 1>&2
+echo $BUILD_JOB_NAME 1>&2
+echo $BUILD_PIPELINE_NAME 1>&2
+echo $ATC_EXTERNAL_URL 1>&2
+
+SCRIPT_INPUT='/tmp/input'
+cat > $SCRIPT_INPUT <&0 # STDIN params
+echo $SCRIPT_INPUT 1>&2
+
+VERSION=$(jq -r '.version.ref // ""' < $SCRIPT_INPUT)
+echo $VERSION   1>&2
+
+
+touch $DEST_DIR/hello_world
+
+OUTPUT_STRING="{ \"version\": { \"ref\": \"$VERSION\"} }"
+echo $OUTPUT_STRING
+exit 0
