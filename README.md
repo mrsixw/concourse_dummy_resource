@@ -16,7 +16,7 @@ Custom [concourse.ci](https://concourse.ci/ "concourse.ci Homepage") [resource](
 # Build
 In the current directory 
 
-    docker build . -tag mrsixw/concourse_dummy_resource
+    docker build . --tag mrsixw/concourse_dummy_resource
     docker push mrsixw/concourse_dummy_resource
 
 **Note** If the resigtry is insectured, your docker deamon needs to be configured with an insecure registry entry. See [here](https://docs.docker.com/registry/insecure/ "Docker insecure registry")
